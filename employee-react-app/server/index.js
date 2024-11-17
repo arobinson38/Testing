@@ -21,7 +21,7 @@ const db = new sqlite3.Database('./mydb.sqlite',(err) =>{
 app.post('/api/employees', (req,res) => {
     const{firstName, lastName, position} = req.body; 
     if(!firstName || !lastName || !position) {
-        return res.status(400).json({message: 'Fist name, last name, and position are required'});
+        return res.status(400).json({message: 'First name, last name, and position are required'});
     }
     const query =  `INSERT INTO employees (firstName, lastName, position) VALUES (?,?,?)`;
     db.run(query, [firstName, lastName, position], function (err){
