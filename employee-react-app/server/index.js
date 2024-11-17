@@ -63,7 +63,7 @@ app.put('/api/employees/:id',(req,res) => {
     const { id } = req.params;
     const{firstName, lastName, position} = req.body;
     if(!firstName || !lastName || !position) {
-        return res.status(400).json({message: 'Fist name, last name, and position are required'});
+        return res.status(400).json({message: 'First name, last name, and position are required'});
     }
     const query =  `UPDATE employees SET firstName = ?, lastName = ?, position = ? WHERE id = ?`; 
     db.run(query, [firstName, lastName, position], function (err){
