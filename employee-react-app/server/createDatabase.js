@@ -20,6 +20,14 @@ db.serialize(()=> {
     //Insert employee 
     db.run(`INSERT INTO employees(firstName,lastName,position)
         VALUES('Random', 'Person', 'back-end')`);
+
+    //Create users table 
+    db.run(`CREATE TABLE IF NOT EXISTS users(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        email TEXT UNIQUE NOT NULL, 
+        password TEXT NOT NULL
+        )`);
 });
 
 db.close();
