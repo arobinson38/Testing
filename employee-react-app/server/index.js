@@ -4,7 +4,6 @@ const app = express();
 const sqlite3 = require('sqlite3').verbose();
 //const cors = require('cors');
 const authRoutes = require('../server/authRoutes');
-//const employeeRoutes = require('../server/employeeRoutes'); //maybe 
 console.log('JWT_SECRET:', process.env.JWT_SECRET);  
 require('dotenv').config();
 
@@ -13,8 +12,7 @@ require('dotenv').config();
 //app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth', authRoutes);
-//app.use('/api/employees', employeeRoutes); //maybe 
+app.use('/api/auth', authRoutes); 
 
 //database setup 
 const db = new sqlite3.Database('./mydb.sqlite',(err) =>{
